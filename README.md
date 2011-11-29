@@ -21,5 +21,5 @@ by:
   ```scala 
   google.get //=> returns response body
   ```
-that is all provides just a bare minimium of features with a really simply 
-syntax for HTTP methods.
+that is all it provides. Intended to be a bare minimium of features with a really 
+simple and clean syntax for HTTP methods.
