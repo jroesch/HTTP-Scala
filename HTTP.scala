@@ -1,9 +1,12 @@
-/* HTTP.scala
+/* 
+  HTTP.scala
   A simple HTTP client in Scala, suporting GET and POST 
   
-  Jared Roesch, 2011 */
+  Jared Roesch, 2011 
+*/
   
-//public interface to the HTTP methods, will return a HTTPConn, or can perform get/posts
+package com.jroesch  
+
 object HTTP {
   def apply(url: String): HTTPConnection = HTTPConnection(url)
   def get(url: String) = HTTPConnection(url).get
@@ -40,7 +43,7 @@ class HTTPConnection(url: String) {
   
   def loadCookies() =
   	for ((name, value) <- cookies) connection.setRequestProperty("Cookie", name + "=" + value)
-
+  //URLEncoder.encode is deprecated fix needed
   def post(parameters: Map[String, String]) = {
 		//try {
 			//connection.setRequestProperty("User-Agent")
