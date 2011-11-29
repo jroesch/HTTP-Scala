@@ -14,11 +14,11 @@ by:
   finally you can hold on to the HTTPConnection object with:
   
   ```scala
-  HTTP("www.google.com")
+  val google = HTTP("www.google.com")
   ```
   which you can than get/post to:
-  ```scala
-  val google = HTTP("www.google.com")  
+  
+  ```scala 
   google.get //=> returns response body
   ```
 that is all provides just a bare minimium of features with a really simply 
