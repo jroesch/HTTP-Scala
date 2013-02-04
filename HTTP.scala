@@ -22,22 +22,22 @@ object HTTPConnection {
 //implements the HTTPConnection class with a connection field and appropriate instance methods 
 class HTTPConnection(url: String) {
 	
-	import collection.JavaConversions._
+  import collection.JavaConversions._
   import java.net._
-	import java.io._
-	import io.Source.fromInputStream
+  import java.io._
+  import io.Source.fromInputStream
 	//constructor action 
-	private var connection = (new URL(url)).openConnection()
+  private var connection = (new URL(url)).openConnection()
 
   var cookies = Map[String, String]()
   
   def storeCookies = {
-		connection.getHeaderFields.lift("Set-Cookie") match {
-			case Some(cookieList) => cookieList foreach { 
-				c => val (name,value) = c span { _ != '='} 
-				cookies += name -> (value drop 1)
+	  connection.getHeaderFields.lift("Set-Cookie") match {
+		  case Some(cookieList) => cookieList foreach { 
+			  c => val (name,value) = c span { _ != '='} 
+			  cookies += name -> (value drop 1)
 			}
-			case None => 
+      case None => 
 		}
   }
   
